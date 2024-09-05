@@ -1,0 +1,67 @@
+
+#include <iostream>
+using namespace std;
+int Stack[50],top=-1 ,s=50;
+
+void push(int value){
+    if(top>s-1){
+        cout<<"Stack is Overflow"<<endl;
+    }
+    else{
+        top++;
+        Stack[top]=value;
+    }
+}
+
+void pop(){
+    if(top<=-1)
+        cout<<"Stack is underflow"<<endl;
+    else
+        cout<<"popped element is "<<Stack[top]<<endl;
+        top--;
+}
+
+void display(){
+    if(top>=0)
+        for(int i=top; i>=0; i--){
+            cout<<Stack[i]<<" "<<endl;
+               
+        }
+}
+
+int main()
+{
+    cout<<"Enter a operation number"<<endl;
+    cout<<" 1.Push \n 2.Pop \n 3.Display \n 4.Exit"<<endl;
+    int x;
+    
+    do{
+        cout<<"Enter a Choise : ";
+       
+        cin>>x;
+    switch(x){
+        case 1:
+            int value;
+            cout<<"Enter a value which is pushed in Stack : ";
+            cin>>value;
+            push(value);
+            break;
+        case 2:
+            pop();
+           
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            cout<<"Exited..!!";
+            break;
+        default:
+            cout<<"****************************"<<endl;
+            cout<<"Enter a right choise :"<<endl;
+            cout<<"****************************"<<endl;
+    }
+    }while(x!=4);
+    
+    return 0;
+}
